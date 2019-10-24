@@ -13,9 +13,9 @@ public class OpenFile extends File {
 
     public LinkedList<ModelFile> getNameFile() {
         var list = new LinkedList<ModelFile>();
-        for(String name_file : this.list())
+        for(File file : this.listFiles())
         {
-            list.add(new ModelFile(name_file));
+            list.add(new ModelFile(file.getName(), file.isDirectory()));
         }
         return list;
     }

@@ -20,7 +20,8 @@ class ListFile {
     }*/
 
     @GetMapping("/")
-    public String greeting(@RequestParam(name="name", required=false, defaultValue="World") String name, Model model) {
+    public String greeting(@RequestParam(name="name", required=false, defaultValue="World") String name,
+                           Model model) {
         model.addAttribute("name", name);
         model.addAttribute("path" , path);
         OpenFile of = new OpenFile(path);

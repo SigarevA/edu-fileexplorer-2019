@@ -6,10 +6,14 @@
 </head>
 <body>
     <h3>Freebie</h3>
+    <form method="GET" id="opendir"></form>
     <p th:text="'Path_dir : ' + ${path} + ';'"/>
     <tr th:each="file : ${files}">
         <td th:text="${file.getName()}"/>
-        <button th:text="${file.getName()}"/>
+        <button th:if="${file.isDirectory()}" th:onclick=""  th:name="${file.name}" th:value="${file.name}"
+                form="opendir">
+            Open
+        </button>
         <br/>
     </tr>
 </body>
