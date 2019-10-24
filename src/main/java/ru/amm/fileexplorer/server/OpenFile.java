@@ -2,6 +2,8 @@ package ru.amm.fileexplorer.server;
 
 
 import java.io.File;
+import java.util.LinkedList;
+import java.util.List;
 
 public class OpenFile extends File {
 
@@ -9,7 +11,12 @@ public class OpenFile extends File {
         super(name);
     }
 
-    public String[] getNameFile() {
-        return this.list();
+    public LinkedList<ModelFile> getNameFile() {
+        var list = new LinkedList<ModelFile>();
+        for(String name_file : this.list())
+        {
+            list.add(new ModelFile(name_file));
+        }
+        return list;
     }
 }
